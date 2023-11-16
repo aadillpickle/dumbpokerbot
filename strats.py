@@ -1,24 +1,22 @@
 import random
 import pyautogui
-from constants import RAISE_AMOUNT_PICS
+from constants import RAISE_AMOUNT_COORDINATES
 from locate import locate_button_on_screen
 
-def take_random_action(available_actions, locations):
-    # Now choose a random action and perform it
-    action = random.choice(available_actions)
+def take_action(available_actions, locations):
+    # strategy goes here
+    action = random.choice(available_actions) 
+
     bet_action = None
-    print(action)
+
     if action == 'raise' or action == 'bet':
-        #check if raise amount is available
-        raise_amount_locations = {action: locate_button_on_screen(button_pic) for action, button_pic in RAISE_AMOUNT_PICS.items()}
-        available_raise_amounts = [action for action, loc in raise_amount_locations.items() if loc is not None]
-        if available_raise_amounts:
-            bet_action = random.choice(available_raise_amounts)
-            print(bet_action)
-            pyautogui.moveTo(*raise_amount_locations[bet_action])
-            pyautogui.click(*raise_amount_locations[bet_action])
-            print(f"took action: {bet_action}")
-            pyautogui.sleep(0.2)
+        bet_action = random.choice(RAISE_AMOUNT_COORDINATES.keys())
+        
+        raise_button_coordinates = RAISE_AMOUNT_COORDINATES[bet_action]['x'], RAISE_AMOUNT_COORDINATES[bet_action]['y']
+        pyautogui.moveTo(*raise_button_coordinates)
+        pyautogui.click(*raise_button_coordinates)
+        print(f"took action: {bet_action}")
+        pyautogui.sleep(0.2)
         
     if locations.get(action):  # Check if the action button is available
         pyautogui.moveTo(*locations[action])

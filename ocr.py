@@ -8,7 +8,7 @@ def capture_and_ocr(screen_region):
     # screen_region = (top, left, width, height)
     img = pyautogui.screenshot(imageFilename="./screencap.png", region=screen_region)
     img.save('screencap.png')
-    return pytesseract.image_to_string(img).strip()
+    return pytesseract.image_to_string(img, config='--psm 7').strip()
 
 def contains_digits(text):
     return bool(re.search(r'\d', text))

@@ -10,7 +10,7 @@ def take_action(available_actions, locations):
     bet_action = None
 
     if action == 'raise' or action == 'bet':
-        bet_action = random.choice(RAISE_AMOUNT_COORDINATES.keys())
+        bet_action = random.choice(list(RAISE_AMOUNT_COORDINATES.keys()))
         
         raise_button_coordinates = RAISE_AMOUNT_COORDINATES[bet_action]['x'], RAISE_AMOUNT_COORDINATES[bet_action]['y']
         pyautogui.moveTo(*raise_button_coordinates)
@@ -25,3 +25,8 @@ def take_action(available_actions, locations):
         if bet_action:
             return f"{action}: {bet_action}"
         return action
+    
+def click_next_hand(next_hand_button):
+    pyautogui.moveTo(*next_hand_button)
+    pyautogui.click(*next_hand_button)
+    print("clicked next hand")

@@ -1,7 +1,9 @@
 import time
 import pyautogui
 
-from constants import SCALE_FACTOR, BUTTONS_REGION
+import mss
+from PIL import Image
+from constants import SCALE_FACTOR, HAND_CARD_SUIT_REGIONS, SUITS_RGB_VALUES, CARD_SUIT_REGIONS
 
 def locate_button_on_screen(button_image):
     try:
@@ -12,6 +14,13 @@ def locate_button_on_screen(button_image):
         return (element_x, element_y)
     except pyautogui.ImageNotFoundException as e:
         return None
-def locate_hand_on_screen():
-    time.sleep(2)
 
+def detect_suit(screen_region): # detects a suit in a given region using color
+    with mss.mss() as sct:
+        img = sct.grab(screen_region)
+        rgb_values = img.pixel(0,0)
+        print(rgb_values)
+        for key, value in SUITS_RGB_VALUES.items():
+            if value == rgb_values:
+                    return key[0]
+        return None

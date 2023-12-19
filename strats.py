@@ -3,14 +3,15 @@ import pyautogui
 from constants import RAISE_AMOUNT_COORDINATES
 from locate import locate_button_on_screen
 
-def take_action(available_actions, locations):
+def take_action(available_actions, locations, position, center_cards, hand_cards):
     # strategy goes here
-    action = random.choice(available_actions) 
+    action = "raise" if "raise" in available_actions else "bet"
 
     bet_action = None
-
-    if action == 'raise' or action == 'bet':
-        bet_action = random.choice(list(RAISE_AMOUNT_COORDINATES.keys()))
+    sus_moves = ['raise', 'bet']
+    if action in sus_moves:
+        #betting strat here
+        bet_action = "all_in"
         
         raise_button_coordinates = RAISE_AMOUNT_COORDINATES[bet_action]['x'], RAISE_AMOUNT_COORDINATES[bet_action]['y']
         pyautogui.moveTo(*raise_button_coordinates)

@@ -1,14 +1,16 @@
 import pytesseract
-import pyautogui
-
+import mss
 import re
+from PIL import Image
 
-#use mss if speed is an issue
+
 def capture_and_ocr(screen_region):
     # screen_region = (top, left, width, height)
-    img = pyautogui.screenshot(imageFilename="./screencap.png", region=screen_region)
-    img.save('screencap.png')
-    return pytesseract.image_to_string(img, config='--psm 7').strip()
+   with mss.mss() as sct:
+        img = sct.grab(screen_region)
+        img = Image.frombytes("RGB", img.size, img.bgra, "raw", "BGRX")
+        print(pytesseract.image_to_string(img, config='--psm 7').strip())
+        return pytesseract.image_to_string(img, config='--psm 7').strip()
 
 def contains_digits(text):
     return bool(re.search(r'\d', text))

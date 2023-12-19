@@ -1,31 +1,16 @@
 Round Number,Actions,Chip Changes,Win?
-2,fold,,no_change
-3,raise: raise_max,-4.0,no_change
-4,"call
-raise: raise_min
-call
-bet: all_in","4.0
--1.0
--9.0
--18.0
--72.0",loss: -76.0
-5,"call
-bet: raise_pot","99.0
--2.0
--2.0",loss: -101.0
-6,raise: raise_max,"4.5
--8.5",loss: -13.0
-7,raise: raise_pot,"9.0
--8.0",loss: -17.0
-8,"call
-bet: raise_min","8.0
--1.0
--3.0",loss: -11.0
-9,raise: raise_max,"4.0
--4.0",loss: -8.0
-10,"call
-call
-bet: raise_pot","4.0
--1.0
--3.0
--3.0",loss: -7.0
+2,raise: all_in,-100.0,no_change
+3,raise: all_in,"99.0
+-99.0",loss: -198.0
+4,raise: all_in,"99.5
+-99.5",loss: -199.0
+5,raise: all_in,"100.0
+-100.0",loss: -200.0
+6,raise: all_in,"100.0
+-100.0",loss: -200.0
+7,raise: all_in,"100.0
+-100.0
+100.0",no_change
+8,raise: all_in,-100.0,no_change
+9,raise: all_in,"99.0
+-99.0",loss: -198.0

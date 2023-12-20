@@ -1,16 +1,8 @@
 Round Number,Actions,Chip Changes,Win?
-2,raise: all_in,-100.0,no_change
-3,raise: all_in,"99.0
--99.0",loss: -198.0
-4,raise: all_in,"99.5
--99.5",loss: -199.0
-5,raise: all_in,"100.0
--100.0",loss: -200.0
-6,raise: all_in,"100.0
--100.0",loss: -200.0
-7,raise: all_in,"100.0
--100.0
-100.0",no_change
-8,raise: all_in,-100.0,no_change
-9,raise: all_in,"99.0
--99.0",loss: -198.0
+11,,21.50,win
+12,raise: all_in,-78.50,loss
+13,raise: all_in,-77.00,loss
+14,raise: all_in,-76.50,loss
+15,raise: all_in,-73.00,loss
+16,raise: all_in,-68.50,loss
+17,raise: all_in,-67.00,loss

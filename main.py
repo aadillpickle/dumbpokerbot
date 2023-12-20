@@ -63,6 +63,7 @@ with open('poker_bot_log.csv', mode='w', newline='') as file:
             last_round_number = round_number
             center_cards = [""] * 5
             hand_cards = [""] * 2
+            last_winnings = float(net_winnings)
 
         button_locations = {action: locate_button_on_screen(button_pic) for action, button_pic in BUTTON_PICS.items()}
         available_actions = [action for action, loc in button_locations.items() if loc is not None]
